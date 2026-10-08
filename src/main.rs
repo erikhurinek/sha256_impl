@@ -1,4 +1,4 @@
-mod sha256_test;
+mod sha256;
 
 fn main() {
     println!("Enter text to hash with SHA-256:");
@@ -7,7 +7,7 @@ fn main() {
     std::io::stdin().read_line(&mut line).unwrap();
 
     let message = line.trim_end().as_bytes();
-    let hash = sha256_test::hash(message);
+    let hash = sha256::hash(message);
     let hash_hex = hex::encode(hash.clone());
 
     println!("{hash_hex}");

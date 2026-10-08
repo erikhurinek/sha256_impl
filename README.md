@@ -19,8 +19,8 @@ A hash function takes an input message of arbitrary length and produces a fixed-
 ### Installation
 
 ```bash
-git clone https://github.com/ErikPeter2000/sha256_test
-cd rsa_test
+git clone https://github.com/erikhurinek/sha256_impl
+cd sha256_impl
 cargo build --release
 ```
 
@@ -37,12 +37,12 @@ This will:
 ## Project Structure
 
 ```
-sha256_test/
+sha256_impl/
 ├── Cargo.toml              # Project dependencies
 ├── README.md               # This file
 └── src/
     ├── main.rs             # Demo application
-    └── sha256_test.rs      # SHA-256 implementation
+    └── sha256.rs           # SHA-256 implementation
 ```
 
 ## Dependencies
@@ -99,7 +99,7 @@ SHA-256 pads the message to a multiple of 512 bit, before processing each 512-bi
 
 1. Pad the message of length $L$:
     1. Append a bit 1 to the message.
-    2. Pad the message with $k$ zeros such that when padded, the new message will be 64 bits less than a multiple of 256.
+    2. Pad the message with $k$ zeros such that when padded, the new message will be 64 bits less than a multiple of 512.
     3. Append the 64-bit representation of $L$ to the message.
 
 ```math
